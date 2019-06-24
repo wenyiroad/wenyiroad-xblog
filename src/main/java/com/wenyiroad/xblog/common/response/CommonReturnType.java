@@ -4,6 +4,7 @@ package com.wenyiroad.xblog.common.response;
  * @Auther: Mojito
  * @Date: 2019/6/19 23:53
  * @Description:
+ *
  */
 public class CommonReturnType {
     private String status;
