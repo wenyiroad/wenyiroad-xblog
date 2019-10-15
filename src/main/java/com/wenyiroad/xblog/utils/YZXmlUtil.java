@@ -42,6 +42,18 @@ public class YZXmlUtil {
             throw new RuntimeException(ex.getMessage());
         }
     }
+    
+   public String getXmlString(HttpServletRequest request) throws IOException {
+        String line;
+        try(BufferedReader reader=request.getReader()){
+            StringBuilder inputString = new StringBuilder();
+            while ((line = reader.readLine()) != null) {
+                inputString.append(line);
+            }
+            System.out.println("----接收到的数据如下：---" + inputString.toString());
+            return inputString.toString();
+        }
+    }
 
 
     static final class XmlUtil {
