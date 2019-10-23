@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 import java.util.List;
 
 
-public interface LabelAnalysisClient<T> {
+public interface LabelAnalysisClient {
 
     /**
      * 查询客群对应的会员列表
@@ -20,7 +20,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/customers/get_cur_customer_group_infor")
-    Call<T> getMembers(@Body TbUser membersReq);
+    Call<TbUser> getMembers(@Body TbUser membersReq);
 
     /**
      * 获取同时拥有n个标签的会员
@@ -29,7 +29,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/customers/get_memberId_intersection")
-    Call<T> getIntersectionMembers(@Body TbUser membersReq);
+    Call<TbUser> getIntersectionMembers(@Body TbUser membersReq);
 
     /**
      * 批量查询客群对应的人数
@@ -38,7 +38,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/customers/get_customer_num")
-    Call<T> getLabelsCount(@Body List<TbUser> labelInfors);
+    Call<TbUser> getLabelsCount(@Body List<TbUser> labelInfors);
 
     /**
      * 查询比例最高的20个标签
@@ -47,7 +47,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/customers/get_customer_top_label")
-    Call<T> getTopLabels(@Body List<TbUser> relatedLabels);
+    Call<TbUser> getTopLabels(@Body List<TbUser> relatedLabels);
 
     /**
      * 给会员打标签
@@ -56,7 +56,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/member/send_handle_label_result")
-    Call<T> tag2Member(@Body TbUser tag2MemberReq);
+    Call<TbUser> tag2Member(@Body TbUser tag2MemberReq);
 
     /**
      * 给会员去标签
@@ -65,7 +65,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/member/del_handle_label")
-    Call<T> cancelTag2Member(@Body TbUser cancelTag2MemberReq);
+    Call<TbUser> cancelTag2Member(@Body TbUser cancelTag2MemberReq);
 
     /**
      * 获取会员标签
@@ -74,7 +74,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/member/get_member_label_info")
-    Call<T> getMemberTags(@Body TbUser memberTagsReq);
+    Call<TbUser> getMemberTags(@Body TbUser memberTagsReq);
 
     /**
      * 是自动标签时。标签同步方法
@@ -83,7 +83,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/rule/rule_op")
-    Call<T> synAutoLabel(@Body TbUser labelSynReq);
+    Call<TbUser> synAutoLabel(@Body TbUser labelSynReq);
 
     /**
      * 不是自动标签时。标签同步方法
@@ -92,7 +92,7 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @POST("/label/rule/op_hand_label")
-    Call<T> synLabel(@Body TbUser labelSynReq);
+    Call<TbUser> synLabel(@Body TbUser labelSynReq);
 
 
     /**
@@ -101,14 +101,14 @@ public interface LabelAnalysisClient<T> {
      * @return
      */
     @GET("/api/label/market/pay/get")
-    Call<T> getMarketingTimesAndPayResp(@Query("labelGroupId") String labelGroupId);
+    Call<TbUser> getMarketingTimesAndPayResp(@Query("labelGroupId") String labelGroupId);
 
 
 
 
     @POST("/label/rule/op_model_label")
-    Call<T> modelLabelOpt(@Body TbUser modelRule);
+    Call<TbUser> modelLabelOpt(@Body TbUser modelRule);
 
     @POST("/label/customers/get_customer_value_distribution")
-    Call<T> getValueDistribution(@Body TbUser valueDistributionReq);
+    Call<TbUser> getValueDistribution(@Body TbUser valueDistributionReq);
 }
