@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class YZXmlUtil {
+public class XmlUtil {
 
     /**
      * XML格式字符串转换为Map
@@ -27,7 +27,7 @@ public class YZXmlUtil {
     public static Map<String, String> xmlToMap(String strXML) {
         try {
             Map<String, String> data = new HashMap<String, String>();
-            DocumentBuilder documentBuilder = XmlUtil.newDocumentBuilder();
+            DocumentBuilder documentBuilder = InnerXmlUtil.newDocumentBuilder();
             InputStream stream = new ByteArrayInputStream(strXML.getBytes("UTF-8"));
             org.w3c.dom.Document doc = documentBuilder.parse(stream);
             doc.getDocumentElement().normalize();
@@ -60,7 +60,7 @@ public class YZXmlUtil {
     }
 
 
-    static final class XmlUtil {
+    static final class InnerXmlUtil {
         public static DocumentBuilder newDocumentBuilder() throws ParserConfigurationException {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             documentBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
